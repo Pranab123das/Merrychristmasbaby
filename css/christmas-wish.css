@@ -430,4 +430,87 @@ body {
     }
 
   }
-                     
+
+
+/* ================================
+   KAWAII CHRISTMAS HUG STICKERS
+================================ */
+
+.virtual-hug {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+
+    width: 100%;
+    margin: 25px auto;
+
+    font-size: initial;
+}
+
+.hug-sticker {
+    display: block;
+    width: 31%;
+    max-width: 155px;
+    height: auto;
+    object-fit: contain;
+
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
+
+    animation: stickerFloat 3s ease-in-out infinite;
+}
+
+.kitty-sticker {
+    transform: rotate(-5deg);
+    animation-delay: 0s;
+}
+
+.bear-sticker {
+    transform: translateY(-12px);
+    animation-delay: 0.5s;
+}
+
+.panda-sticker {
+    transform: rotate(5deg);
+    animation-delay: 1s;
+}
+
+@keyframes stickerFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+
+/* MOBILE STICKER DISPLAY */
+
+@media (max-width: 480px) {
+
+    .virtual-hug {
+        gap: 0;
+        padding: 0 3px;
+    }
+
+    .hug-sticker {
+        width: 33%;
+        max-width: 125px;
+    }
+
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hug-sticker {
+        animation: none !important;
+    }
+
+}
+
