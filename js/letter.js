@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const envelopeFlap = document.querySelector(".envelope-flap");
     const envelopePaper = document.querySelector(".envelope-paper");
 
-    // Random number generator
     function randomValue(min, max) {
         return Math.random() * (max - min) + min;
     }
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Open the magical envelope
+    // Open envelope and enter the letter
     function setupLetter() {
 
         if (!openLetterButton || !envelope || !envelopeFlap || !envelopePaper) {
@@ -88,18 +87,21 @@ document.addEventListener("DOMContentLoaded", () => {
             envelopePaper.style.transition =
                 "transform 1.2s ease 0.7s";
 
-            envelopePaper.style.transform =
-                "translateY(-65px)";
+            envelopePaper.style.transform = "translateY(-65px)";
 
             envelope.style.animation = "none";
 
-            openLetterButton.textContent = "YOUR LETTER IS WAITING...";
-
+            openLetterButton.textContent = "OPENING YOUR LETTER...";
             openLetterButton.disabled = true;
+
+            // Navigate after the envelope animation
+            setTimeout(() => {
+                window.location.href = "christmas-letter.html";
+            }, 2500);
+
         });
     }
 
-    // Initialize everything
     createStars();
     createSnow();
     setupLetter();
