@@ -319,3 +319,86 @@
         transition: none;
     }
 }
+
+/* ================================
+   KAWAII LETTER STICKER DECORATIONS
+================================ */
+
+.letter-greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.letter-sticker {
+    display: block;
+    object-fit: contain;
+    height: auto;
+    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.12));
+}
+
+.greeting-kitty {
+    width: 110px;
+    max-width: 35%;
+    animation: letterStickerFloat 3s ease-in-out infinite;
+}
+
+.emotional-bear {
+    width: 125px;
+    max-width: 40%;
+    margin: 18px auto;
+    animation: letterStickerFloat 3.5s ease-in-out infinite;
+}
+
+.letter-panda-pair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 22px auto 12px;
+}
+
+.signature-panda {
+    width: 105px;
+    max-width: 35%;
+    animation: letterStickerFloat 3s ease-in-out infinite;
+}
+
+.signature-panda:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+@keyframes letterStickerFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@media (max-width: 480px) {
+    .greeting-kitty {
+        width: 90px;
+    }
+
+    .emotional-bear {
+        width: 105px;
+    }
+
+    .signature-panda {
+        width: 90px;
+    }
+
+    .letter-panda-pair {
+        gap: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .letter-sticker {
+        animation: none !important;
+    }
+}
