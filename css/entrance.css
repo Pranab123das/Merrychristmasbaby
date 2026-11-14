@@ -1,0 +1,949 @@
+
+/* =========================================
+   KUCHUU'S ENCHANTED CHRISTMAS
+   ENTRANCE PAGE STYLES
+========================================= */
+
+
+/* =========================================
+   1. MAIN ENTRANCE
+========================================= */
+
+.christmas-entrance {
+
+    position: relative;
+
+    min-height: 100svh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    padding: 30px 20px 24px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 55%,
+            rgba(37, 66, 119, 0.34),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #080d24 0%,
+            #101a38 52%,
+            #080d24 100%
+        );
+
+}
+
+
+/* =========================================
+   2. NIGHT SKY
+========================================= */
+
+.night-sky {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(107, 151, 216, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 35%,
+            rgba(129, 151, 226, 0.12),
+            transparent 28%
+        );
+
+}
+
+
+/* =========================================
+   3. STAR CONTAINER
+========================================= */
+
+.star-container {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.star {
+
+    position: absolute;
+
+    color: #fff7df;
+
+    font-size: 8px;
+
+    opacity: 0.6;
+
+    animation: twinkle 3s ease-in-out infinite;
+
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.9),
+        0 0 14px rgba(155, 201, 245, 0.8);
+
+}
+
+
+/* =========================================
+   4. SHOOTING STARS
+========================================= */
+
+.shooting-star {
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(220,235,255,0.95)
+    );
+
+    opacity: 0;
+
+    transform: rotate(-35deg);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.shooting-star-one {
+
+    top: 15%;
+
+    left: 65%;
+
+    animation: shootingStar 7s linear 2s infinite;
+
+}
+
+
+.shooting-star-two {
+
+    top: 35%;
+
+    left: 15%;
+
+    animation: shootingStar 9s linear 5s infinite;
+
+}
+
+
+@keyframes shootingStar {
+
+    0% {
+
+        opacity: 0;
+
+        transform: translate(0, 0) rotate(-35deg);
+
+    }
+
+    5% {
+
+        opacity: 1;
+
+    }
+
+    18% {
+
+        opacity: 0;
+
+        transform: translate(-180px, 180px) rotate(-35deg);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================
+   5. SNOWFALL
+========================================= */
+
+.snow-container {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+}
+
+
+.snowflake {
+
+    position: absolute;
+
+    top: -15px;
+
+    color: #ffffff;
+
+    opacity: 0.7;
+
+    font-size: 10px;
+
+    user-select: none;
+
+    animation: snowfall linear infinite;
+
+    text-shadow: 0 0 5px rgba(255,255,255,0.8);
+
+}
+
+
+/* =========================================
+   6. HEADER
+========================================= */
+
+.entrance-header {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+    animation: fadeIn 2s ease both;
+
+}
+
+
+.north-star {
+
+    font-size: 38px;
+
+    color: var(--gold);
+
+    text-shadow:
+        0 0 12px rgba(233,207,152,0.8),
+        0 0 30px rgba(233,207,152,0.4);
+
+    animation: softPulse 3s ease-in-out infinite;
+
+}
+
+
+.header-label {
+
+    margin-top: 7px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: var(--soft-silver);
+
+}
+
+
+/* =========================================
+   7. MAIN CONTENT
+========================================= */
+
+.entrance-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    text-align: center;
+
+    margin-top: 45px;
+
+    animation: fadeUp 1.5s ease both;
+
+}
+
+
+.pre-title {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+}
+
+
+.main-title {
+
+    font-size: clamp(39px, 10vw, 65px);
+
+    line-height: 1.12;
+
+    font-weight: normal;
+
+    letter-spacing: -1.5px;
+
+    color: var(--starlight);
+
+    text-shadow:
+        0 0 20px rgba(197,217,255,0.15);
+
+}
+
+
+.main-title span {
+
+    display: block;
+
+    color: var(--moonlight);
+
+    font-style: italic;
+
+    margin-top: 4px;
+
+}
+
+
+/* =========================================
+   8. TITLE DECORATION
+========================================= */
+
+.title-decoration {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 21px auto;
+
+}
+
+
+.title-decoration span:not(.decoration-star) {
+
+    width: 55px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--soft-gold)
+    );
+
+}
+
+
+.title-decoration span:last-child {
+
+    transform: rotate(180deg);
+
+}
+
+
+.decoration-star {
+
+    color: var(--gold);
+
+    font-size: 13px;
+
+}
+
+
+.welcome-message {
+
+    color: var(--gold);
+
+    font-size: 18px;
+
+    margin-bottom: 13px;
+
+    font-style: italic;
+
+}
+
+
+.entrance-description {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    max-width: 330px;
+
+    margin: 0 auto;
+
+}
+
+
+.entrance-description.secondary {
+
+    margin-top: 8px;
+
+    color: #94a8ce;
+
+}
+
+
+/* =========================================
+   9. CHRISTMAS TREE AREA
+========================================= */
+
+.christmas-tree-area {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin-top: 26px;
+
+}
+
+
+.tree-glow {
+
+    position: absolute;
+
+    width: 210px;
+
+    height: 210px;
+
+    top: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(100, 155, 231, 0.12);
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+    animation: softPulse 4s ease-in-out infinite;
+
+}
+
+
+.christmas-tree {
+
+    position: relative;
+
+    width: 190px;
+
+    height: 175px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.tree-star {
+
+    position: absolute;
+
+    top: -17px;
+
+    color: #ffe7a8;
+
+    font-size: 26px;
+
+    z-index: 5;
+
+    text-shadow:
+        0 0 8px #ffe7a8,
+        0 0 20px #e9cf98,
+        0 0 35px #fff0c4;
+
+    animation: softPulse 2s ease-in-out infinite;
+
+}
+
+
+.tree-layer {
+
+    position: absolute;
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 58px solid transparent;
+
+    border-right: 58px solid transparent;
+
+    border-bottom: 75px solid #244c55;
+
+    filter: drop-shadow(
+        0 0 8px rgba(98, 170, 157, 0.15)
+    );
+
+}
+
+
+.layer-one {
+
+    top: 0;
+
+    border-left-width: 38px;
+
+    border-right-width: 38px;
+
+    border-bottom-width: 58px;
+
+    border-bottom-color: #32675f;
+
+}
+
+
+.layer-two {
+
+    top: 35px;
+
+    border-bottom-color: #28564f;
+
+}
+
+
+.layer-three {
+
+    top: 73px;
+
+    border-left-width: 78px;
+
+    border-right-width: 78px;
+
+    border-bottom-width: 95px;
+
+    border-bottom-color: #1e4742;
+
+}
+
+
+.tree-trunk {
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 28px;
+
+    bottom: 0;
+
+    background: #805b43;
+
+    border-radius: 2px;
+
+}
+
+
+/* =========================================
+   10. TREE LIGHTS
+========================================= */
+
+.tree-light {
+
+    position: absolute;
+
+    z-index: 4;
+
+    color: #ffe6a9;
+
+    font-size: 12px;
+
+    text-shadow:
+        0 0 5px #fff0b5,
+        0 0 12px #ffdc82;
+
+    animation: softPulse 1.8s ease-in-out infinite;
+
+}
+
+
+.light-one {
+
+    top: 38px;
+
+    left: 89px;
+
+}
+
+
+.light-two {
+
+    top: 72px;
+
+    left: 48px;
+
+    animation-delay: .5s;
+
+}
+
+
+.light-three {
+
+    top: 85px;
+
+    right: 48px;
+
+    animation-delay: .9s;
+
+}
+
+
+.light-four {
+
+    top: 122px;
+
+    left: 77px;
+
+    animation-delay: .3s;
+
+}
+
+
+.light-five {
+
+    top: 130px;
+
+    right: 70px;
+
+    animation-delay: .7s;
+
+}
+
+
+.tree-caption {
+
+    margin-top: 16px;
+
+    color: var(--soft-silver);
+
+    font-size: 11px;
+
+    font-style: italic;
+
+    letter-spacing: .5px;
+
+}
+
+
+/* =========================================
+   11. ENTRANCE BUTTON
+========================================= */
+
+.entrance-action {
+
+    position: relative;
+
+    z-index: 4;
+
+    margin-top: 29px;
+
+    text-align: center;
+
+    width: 100%;
+
+}
+
+
+.begin-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    min-height: 49px;
+
+    min-width: 245px;
+
+    padding: 0 25px;
+
+    border: 1px solid rgba(233,207,152,0.7);
+
+    border-radius: 40px;
+
+    color: var(--starlight);
+
+    background: linear-gradient(
+        135deg,
+        rgba(39, 57, 99, 0.85),
+        rgba(20, 32, 65, 0.95)
+    );
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 0 15px rgba(123, 165, 226, 0.12),
+        inset 0 0 15px rgba(255,255,255,0.03);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+
+}
+
+
+.begin-button:hover {
+
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        135deg,
+        #344e80,
+        #192d58
+    );
+
+    box-shadow:
+        0 0 22px rgba(155, 201, 245, 0.3);
+
+}
+
+
+.begin-button:active {
+
+    transform: scale(.96);
+
+}
+
+
+.button-star {
+
+    color: var(--gold);
+
+    font-size: 17px;
+
+}
+
+
+.button-caption {
+
+    color: #91a2c4;
+
+    font-size: 10px;
+
+    margin-top: 13px;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+.entrance-footer {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: auto;
+
+    padding-top: 30px;
+
+    color: #8997b4;
+
+    font-size: 8px;
+
+    letter-spacing: 1.4px;
+
+    text-align: center;
+
+}
+
+
+.footer-heart {
+
+    color: #d8b6d2;
+
+    font-size: 13px;
+
+    animation: softPulse 2.5s infinite;
+
+}
+
+
+/* =========================================
+   13. MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .christmas-entrance {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+
+    .entrance-content {
+
+        margin-top: 35px;
+
+    }
+
+
+    .pre-title {
+
+        font-size: 8px;
+
+        letter-spacing: 1.8px;
+
+    }
+
+
+    .main-title {
+
+        font-size: 39px;
+
+    }
+
+
+    .entrance-description {
+
+        font-size: 12px;
+
+    }
+
+
+    .christmas-tree-area {
+
+        margin-top: 20px;
+
+    }
+
+
+    .entrance-footer {
+
+        font-size: 7px;
+
+        gap: 8px;
+
+    }
+
+}
+
+
+/* =========================================
+   14. SHORT SCREEN SUPPORT
+========================================= */
+
+@media (max-height: 720px) {
+
+    .entrance-content {
+
+        margin-top: 25px;
+
+    }
+
+
+    .christmas-tree-area {
+
+        margin-top: 15px;
+
+    }
+
+
+    .christmas-tree {
+
+        transform: scale(.85);
+
+        transform-origin: top center;
+
+        margin-bottom: -25px;
+
+    }
+
+
+    .entrance-action {
+
+        margin-top: 18px;
+
+    }
+
+}
