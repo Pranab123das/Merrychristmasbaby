@@ -443,3 +443,123 @@
         transition: none;
     }
 }
+
+
+/* =================================
+   THE HIDDEN CHRISTMAS DOOR
+================================= */
+
+.next-chapter {
+    width: 100%;
+    max-width: 520px;
+    margin: 40px auto 10px;
+    padding: 30px 22px;
+
+    text-align: center;
+
+    border: 1px solid rgba(233, 207, 152, 0.45);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(233, 207, 152, 0.13),
+            rgba(20, 34, 67, 0.95)
+        );
+
+    box-shadow:
+        0 0 35px rgba(233, 207, 152, 0.12),
+        inset 0 0 25px rgba(233, 207, 152, 0.04);
+
+    animation: fadeUp 1s ease both;
+}
+
+.next-chapter[hidden] {
+    display: none;
+}
+
+.chapter-sparkle {
+    color: var(--gold);
+    font-size: 38px;
+    margin-bottom: 15px;
+    animation: softPulse 2s infinite ease-in-out;
+}
+
+.next-chapter p {
+    color: var(--ice-blue);
+    font-size: 12px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+.next-chapter h2 {
+    color: var(--starlight);
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 5vw, 30px);
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+#continueJourney {
+    padding: 14px 25px;
+
+    border: 1px solid rgba(233, 207, 152, 0.75);
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #d9c59c,
+        #a98c60
+    );
+
+    color: #101a3b;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 22px rgba(233, 207, 152, 0.15);
+
+    transition: all 0.35s ease;
+}
+
+#continueJourney:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(233, 207, 152, 0.35);
+}
+
+#continueJourney:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 480px) {
+
+    .next-chapter {
+        padding: 25px 16px;
+    }
+
+    .next-chapter p {
+        font-size: 11px;
+    }
+
+    #continueJourney {
+        max-width: 100%;
+        padding: 13px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .next-chapter,
+    .chapter-sparkle {
+        animation: none !important;
+    }
+
+    #continueJourney {
+        transition: none;
+    }
+}
