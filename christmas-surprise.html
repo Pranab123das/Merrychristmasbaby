@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d24">
+
+    <title>The Christmas Gift Room 🎁</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/christmas-surprise.css">
+
+    <script src="js/surprise.js" defer></script>
+</head>
+
+<body>
+
+    <main class="surprise-page" id="surprisePage">
+
+        <div class="surprise-sky" id="surpriseStars"></div>
+        <div class="surprise-snow" id="surpriseSnow"></div>
+
+        <section class="gift-room">
+
+            <p class="surprise-eyebrow">
+                THE ENCHANTED CHRISTMAS WORKSHOP
+            </p>
+
+            <div class="workshop-decoration">
+                ✧ ❄ ✧
+            </div>
+
+            <h1>
+                Three Little Gifts
+            </h1>
+
+            <p class="surprise-intro">
+                Well, my Kuchuuu... you didn't think
+                I would let you leave with just one
+                little letter, did you?
+            </p>
+
+            <p class="gift-instruction">
+                There are three presents waiting for you.
+                Choose one to discover what's inside.
+            </p>
+
+            <div class="gift-collection">
+
+                <button class="gift-box" id="giftOne"
+                    aria-label="Open the first Christmas gift">
+
+                    <span class="gift-number">01</span>
+
+                    <span class="gift-emoji">🎁</span>
+
+                    <span class="gift-name">
+                        A LITTLE MEMORY
+                    </span>
+
+                </button>
+
+                <button class="gift-box" id="giftTwo"
+                    aria-label="Open the second Christmas gift">
+
+                    <span class="gift-number">02</span>
+
+                    <span class="gift-emoji">🎀</span>
+
+                    <span class="gift-name">
+                        A LITTLE SURPRISE
+                    </span>
+
+                </button>
+
+                <button class="gift-box" id="giftThree"
+                    aria-label="Open the third Christmas gift">
+
+                    <span class="gift-number">03</span>
+
+                    <span class="gift-emoji">⭐</span>
+
+                    <span class="gift-name">
+                        A LITTLE PROMISE
+                    </span>
+
+                </button>
+
+            </div>
+
+            <div class="gift-reveal" id="giftReveal"
+                aria-live="polite" hidden>
+
+                <div class="reveal-sparkle">✦</div>
+
+                <h2 id="revealTitle">
+                    A Little Something...
+                </h2>
+
+                <p id="revealMessage"></p>
+
+                <button id="closeReveal" class="close-reveal-btn">
+                    BACK TO THE GIFTS
+                </button>
+
+            </div>
+
+            <p class="workshop-footer">
+                MADE IN A LITTLE CORNER OF PUCHU'S HEART ♡
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
