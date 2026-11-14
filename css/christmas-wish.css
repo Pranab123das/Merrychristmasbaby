@@ -1,0 +1,433 @@
+
+/* ================================
+   CHRISTMAS WISH PAGE
+================================ */
+
+:root {
+    --midnight: #09132f;
+    --deep-blue: #111f43;
+    --starlight: #f7f1df;
+    --ice-blue: #c7d9f4;
+    --gold: #e9cf98;
+    --soft-pink: #f3c5d8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #263b69 0%,
+            #111f43 42%,
+            #09132f 100%
+        );
+
+    color: var(--starlight);
+    font-family: Georgia, serif;
+}
+
+
+/* ================================
+   STARS AND SNOW
+================================ */
+
+.stars,
+.snow-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.stars {
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+
+    box-shadow: 0 0 8px white;
+
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.snow-container {
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+
+    animation: snowfall linear infinite;
+}
+
+
+/* ================================
+   MAIN PAGE
+================================ */
+
+.wish-page {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 55px 18px;
+}
+
+.wish-content {
+    width: 100%;
+    max-width: 650px;
+
+    text-align: center;
+
+    animation: fadeUp 1.2s ease both;
+}
+
+.wish-eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.wish-star {
+    font-size: 43px;
+    margin-bottom: 18px;
+
+    animation: softPulse 3s infinite ease-in-out;
+}
+
+.wish-content h1 {
+    color: var(--starlight);
+
+    font-size: clamp(32px, 7vw, 53px);
+    font-weight: normal;
+    line-height: 1.35;
+
+    margin-bottom: 18px;
+}
+
+.wish-content h1 span {
+    color: var(--soft-pink);
+}
+
+.wish-intro {
+    color: var(--ice-blue);
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    max-width: 420px;
+    margin: 0 auto 35px;
+}
+
+
+/* ================================
+   CHRISTMAS LETTER CARD
+================================ */
+
+.wish-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 530px;
+
+    margin: 0 auto 32px;
+    padding: 38px 30px;
+
+    border: 1px solid rgba(233, 207, 152, 0.5);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(36, 51, 82, 0.96),
+            rgba(15, 27, 55, 0.97)
+        );
+
+    box-shadow:
+        0 15px 55px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(233, 207, 152, 0.08);
+}
+
+.card-decoration {
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 22px;
+}
+
+.card-heading {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.wish-divider {
+    color: var(--gold);
+    font-size: 19px;
+    margin-bottom: 22px;
+}
+
+.wish-text {
+    color: #eee9df;
+
+    font-size: 15px;
+    line-height: 2;
+
+    text-align: left;
+}
+
+.card-signature {
+    color: var(--soft-pink);
+
+    font-size: 17px;
+    line-height: 1.9;
+
+    text-align: right;
+    margin-top: 30px;
+}
+
+
+/* ================================
+   WISH BUTTON
+================================ */
+
+#wishButton {
+    padding: 15px 27px;
+
+    border: 1px solid rgba(233, 207, 152, 0.8);
+    border-radius: 35px;
+
+    background: linear-gradient(
+        135deg,
+        #d9c59c,
+        #a98c60
+    );
+
+    color: #101a3b;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 25px rgba(233, 207, 152, 0.15);
+
+    transition: all 0.35s ease;
+}
+
+#wishButton:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 32px rgba(233, 207, 152, 0.35);
+}
+
+#wishButton:active {
+    transform: scale(0.96);
+}
+
+
+/* ================================
+   VIRTUAL HUG REVEAL
+================================ */
+
+#wishMessage {
+    max-width: 530px;
+
+    margin: 30px auto 0;
+    padding: 30px 22px;
+
+    border: 1px solid rgba(243, 197, 216, 0.4);
+    border-radius: 20px;
+
+    background: rgba(243, 197, 216, 0.07);
+
+    animation: fadeUp 1s ease both;
+}
+
+#wishMessage[hidden] {
+    display: none;
+}
+
+#wishMessage p {
+    color: var(--ice-blue);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+#wishMessage h2 {
+    color: var(--soft-pink);
+
+    font-size: clamp(21px, 5vw, 27px);
+    font-weight: normal;
+    line-height: 1.5;
+
+    margin: 15px 0;
+}
+
+.virtual-hug {
+    font-size: 65px;
+    margin: 20px 0;
+
+    animation: hugPulse 1.5s infinite ease-in-out;
+}
+
+.hug-signature {
+    color: var(--soft-pink) !important;
+    margin-top: 22px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.wish-footer {
+    color: rgba(199, 217, 244, 0.65);
+
+    font-size: 11px;
+    line-height: 2;
+
+    letter-spacing: 1px;
+    margin-top: 45px;
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes snowfall {
+    from {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+@keyframes hugPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+/* ================================
+   MOBILE RESPONSIVENESS
+================================ */
+
+@media (max-width: 480px) {
+
+    .wish-page {
+        padding: 45px 16px;
+    }
+
+    .wish-card {
+        padding: 30px 21px;
+    }
+
+    .wish-text {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .wish-intro {
+        font-size: 13px;
+    }
+
+    .wish-footer {
+        margin-top: 35px;
+    }
+
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+  }
+                     
