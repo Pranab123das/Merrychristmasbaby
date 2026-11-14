@@ -1,0 +1,321 @@
+/* =================================
+   CHRISTMAS LETTER PAGE
+================================= */
+
+.letter-page {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 18px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #263d68 0%,
+            #111d3d 45%,
+            #080d24 100%
+        );
+}
+
+/* =================================
+   BACKGROUND
+================================= */
+
+.letter-sky,
+.letter-snow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.letter-sky {
+    z-index: -1;
+}
+
+.letter-snow {
+    z-index: 3;
+}
+
+.letter-star {
+    position: absolute;
+    color: #fff9e9;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.letter-snowflake {
+    position: absolute;
+    top: -20px;
+    color: #e8f2ff;
+    opacity: 0.7;
+    animation: snowfall linear infinite;
+}
+
+/* =================================
+   LETTER CONTAINER
+================================= */
+
+.letter-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 680px;
+    padding: 48px 55px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8f1df,
+            #eee3cc
+        );
+
+    color: #34405b;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.4),
+        0 0 45px rgba(197, 217, 255, 0.12);
+
+    animation: fadeUp 1.2s ease both;
+}
+
+/* =================================
+   TOP LABEL
+================================= */
+
+.letter-top-label {
+    text-align: center;
+    color: #9b8056;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+}
+
+/* =================================
+   DECORATIONS
+================================= */
+
+.letter-decoration {
+    text-align: center;
+    color: #b99a65;
+    font-size: 29px;
+    margin-bottom: 12px;
+}
+
+.letter-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 22px auto 30px;
+    color: #b99a65;
+}
+
+.letter-divider::before,
+.letter-divider::after {
+    content: "";
+    width: 65px;
+    height: 1px;
+    background: rgba(153, 125, 80, 0.4);
+}
+
+.letter-divider span {
+    font-size: 15px;
+}
+
+/* =================================
+   HEADING
+================================= */
+
+.letter-content h1 {
+    text-align: center;
+    color: #35425e;
+    font-family: Georgia, serif;
+    font-size: clamp(27px, 6vw, 39px);
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+/* =================================
+   LETTER BODY
+================================= */
+
+.personal-letter {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 2;
+    color: #4d5362;
+}
+
+.personal-letter p {
+    margin-bottom: 19px;
+}
+
+/* =================================
+   HIGHLIGHTED MESSAGE
+================================= */
+
+.letter-highlight {
+    padding: 15px 18px;
+    margin: 25px 0 !important;
+
+    border-left: 2px solid #b99a65;
+
+    background: rgba(185, 154, 101, 0.09);
+
+    color: #66543b;
+    font-style: italic;
+}
+
+/* =================================
+   SIGNATURE
+================================= */
+
+.letter-signature {
+    margin-top: 30px;
+    text-align: right;
+    color: #48516a;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.letter-signature span {
+    display: inline-block;
+    margin-top: 8px;
+    color: #b78b79;
+    font-size: 27px;
+}
+
+/* =================================
+   BOTTOM DECORATION
+================================= */
+
+.letter-bottom-decoration {
+    text-align: center;
+    margin-top: 35px;
+    color: #b99a65;
+    letter-spacing: 9px;
+    font-size: 14px;
+}
+
+.letter-bottom-text {
+    margin-top: 14px;
+    text-align: center;
+    color: #9b8056;
+    font-size: 8px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+/* =================================
+   CONTINUE BUTTON
+================================= */
+
+.continue-letter-btn {
+    display: block;
+    margin: 35px auto 0;
+    padding: 14px 23px;
+
+    border: 1px solid #a98c60;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #c7ae82,
+        #a98c60
+    );
+
+    color: #fffaf0;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(120, 94, 54, 0.15);
+
+    transition: all 0.35s ease;
+}
+
+.continue-letter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(120, 94, 54, 0.25);
+}
+
+.continue-letter-btn:active {
+    transform: scale(0.96);
+}
+
+.continue-letter-btn:disabled {
+    opacity: 0.65;
+    cursor: default;
+}
+
+/* =================================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 600px) {
+
+    .letter-page {
+        padding: 25px 12px;
+        align-items: flex-start;
+    }
+
+    .letter-content {
+        padding: 35px 23px;
+    }
+
+    .letter-top-label {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .personal-letter {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .personal-letter p {
+        margin-bottom: 16px;
+    }
+
+    .letter-bottom-text {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .continue-letter-btn {
+        max-width: 100%;
+        font-size: 9px;
+        padding: 13px 18px;
+    }
+}
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .letter-content,
+    .letter-star,
+    .letter-snowflake {
+        animation: none !important;
+    }
+
+    .continue-letter-btn {
+        transition: none;
+    }
+}
