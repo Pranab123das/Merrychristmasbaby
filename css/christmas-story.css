@@ -1,0 +1,369 @@
+/* ================================
+   CHRISTMAS STORY - POST OFFICE
+================================ */
+
+.story-page {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 20px;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #1d315c 0%,
+            #101a3b 42%,
+            #080d24 100%
+        );
+    isolation: isolate;
+}
+
+/* ================================
+   NIGHT SKY
+================================ */
+
+.story-sky,
+.story-snow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.story-sky {
+    z-index: -1;
+}
+
+.story-snow {
+    z-index: 5;
+}
+
+.story-star {
+    position: absolute;
+    color: #fff9e9;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.story-snowflake {
+    position: absolute;
+    top: -20px;
+    color: #e8f2ff;
+    opacity: 0.75;
+    animation: snowfall linear infinite;
+}
+
+/* ================================
+   POST OFFICE CONTENT
+================================ */
+
+.post-office {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 620px;
+    text-align: center;
+    padding: 35px 25px;
+    border: 1px solid rgba(220, 229, 245, 0.17);
+    border-radius: 24px;
+    background: rgba(13, 23, 52, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 0 60px rgba(105, 153, 220, 0.08),
+        inset 0 0 35px rgba(220, 229, 245, 0.025);
+    animation: fadeUp 1.2s ease both;
+}
+
+/* ================================
+   LABEL
+================================ */
+
+.post-office-label {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid rgba(220, 229, 245, 0.35);
+    border-radius: 30px;
+    color: var(--soft-silver);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+/* ================================
+   POST OFFICE ICON
+================================ */
+
+.post-office-icon {
+    color: var(--gold);
+    font-size: 38px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 20px rgba(233, 207, 152, 0.45);
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* ================================
+   HEADINGS
+================================ */
+
+.story-eyebrow {
+    color: var(--ice-blue);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.post-office h1 {
+    color: var(--starlight);
+    font-size: clamp(34px, 7vw, 53px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    text-shadow: 0 0 25px rgba(197, 217, 255, 0.18);
+}
+
+.story-description {
+    max-width: 420px;
+    margin: 0 auto 22px;
+    color: var(--soft-silver);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ================================
+   LETTER ADDRESS
+================================ */
+
+.letter-address {
+    display: inline-block;
+    color: var(--soft-silver);
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.5px;
+    padding: 12px 22px;
+    border-top: 1px solid rgba(220, 229, 245, 0.15);
+    border-bottom: 1px solid rgba(220, 229, 245, 0.15);
+}
+
+.letter-address span {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* ================================
+   ENVELOPE
+================================ */
+
+.envelope-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 38px auto 25px;
+    perspective: 900px;
+}
+
+.envelope {
+    position: relative;
+    width: 190px;
+    height: 125px;
+    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.35));
+    animation: gentleFloat 3.5s ease-in-out infinite;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #b9c9df;
+    border-radius: 5px;
+}
+
+.envelope-paper {
+    position: absolute;
+    z-index: 1;
+    left: 12px;
+    right: 12px;
+    bottom: 8px;
+    height: 100px;
+    background: #f5eedc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope-paper span {
+    color: #b99a65;
+    font-size: 27px;
+}
+
+.envelope-flap {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 95px solid transparent;
+    border-right: 95px solid transparent;
+    border-top: 72px solid #dce5f5;
+    transform-origin: top center;
+}
+
+.envelope-front {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: linear-gradient(
+        145deg,
+        #dce5f5,
+        #aebdd8
+    );
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+    border-radius: 5px;
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 4;
+    top: 51px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 29px;
+    height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #b99a65;
+    color: #fff9e9;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    box-shadow: 0 0 15px rgba(233, 207, 152, 0.4);
+}
+
+/* ================================
+   LETTER HINT
+================================ */
+
+.letter-hint {
+    color: var(--soft-silver);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+    font-style: italic;
+}
+
+/* ================================
+   OPEN LETTER BUTTON
+================================ */
+
+.open-letter-btn {
+    position: relative;
+    padding: 14px 27px;
+    border: 1px solid rgba(233, 207, 152, 0.75);
+    border-radius: 30px;
+    background: linear-gradient(
+        135deg,
+        #d9c59c,
+        #a98c60
+    );
+    color: #101a3b;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(233, 207, 152, 0.15);
+    transition: all 0.35s ease;
+}
+
+.open-letter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(233, 207, 152, 0.35);
+}
+
+.open-letter-btn:active {
+    transform: scale(0.96);
+}
+
+.open-letter-btn:disabled {
+    opacity: 0.65;
+    cursor: default;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.story-footer {
+    margin-top: 35px;
+    color: rgba(174, 189, 216, 0.65);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* ================================
+   MOBILE RESPONSIVENESS
+================================ */
+
+@media (max-width: 480px) {
+
+    .story-page {
+        padding: 25px 14px;
+    }
+
+    .post-office {
+        padding: 30px 17px;
+        border-radius: 20px;
+    }
+
+    .post-office-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .story-description {
+        font-size: 13px;
+    }
+
+    .envelope {
+        transform: scale(0.9);
+    }
+
+    .story-footer {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* ================================
+   SHORT SCREENS
+================================ */
+
+@media (max-height: 700px) {
+    .story-page {
+        align-items: flex-start;
+    }
+
+    .post-office {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .envelope-container {
+        margin: 22px auto 18px;
+    }
+
+    .story-footer {
+        margin-top: 22px;
+    }
+  }
