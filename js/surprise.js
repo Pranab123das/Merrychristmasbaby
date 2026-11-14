@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (starContainer) {
         for (let i = 0; i < 85; i++) {
             const star = document.createElement("span");
+
             star.className = "star";
             star.style.left = Math.random() * 100 + "%";
             star.style.top = Math.random() * 100 + "%";
             star.style.animationDelay = Math.random() * 4 + "s";
+
             starContainer.appendChild(star);
         }
     }
@@ -22,18 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (snowContainer) {
         for (let i = 0; i < 55; i++) {
             const snow = document.createElement("span");
+
             snow.className = "snowflake";
-            snow.innerHTML = "❄";
+            snow.textContent = "❄";
             snow.style.left = Math.random() * 100 + "%";
-            snow.style.animationDuration = (5 + Math.random() * 8) + "s";
-            snow.style.animationDelay = Math.random() * 5 + "s";
+            snow.style.animationDuration =
+                (5 + Math.random() * 8) + "s";
+            snow.style.animationDelay =
+                Math.random() * 5 + "s";
+
             snowContainer.appendChild(snow);
         }
     }
 
 
     /* =========================
-       GIFT REVEAL SYSTEM
+       GIFT MESSAGES
     ========================= */
 
     const gifts = {
@@ -54,7 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 
-    const giftButtons = document.querySelectorAll(".gift-button");
+    /* =========================
+       GIFT ROOM ELEMENTS
+    ========================= */
+
+    const giftButtons = [
+        document.getElementById("giftOne"),
+        document.getElementById("giftTwo"),
+        document.getElementById("giftThree")
+    ];
+
     const giftReveal = document.getElementById("giftReveal");
     const revealTitle = document.getElementById("revealTitle");
     const revealMessage = document.getElementById("revealMessage");
@@ -66,41 +81,62 @@ document.addEventListener("DOMContentLoaded", () => {
     const continueJourney = document.getElementById("continueJourney");
 
 
+    /* =========================
+       OPEN A GIFT
+    ========================= */
+
+    function openGift(giftId) {
+
+        const gift = gifts[giftId];
+
+        if (!gift || !giftReveal || !revealTitle || !revealMessage) {
+            return;
+        }
+
+        revealTitle.textContent = gift.title;
+        revealMessage.textContent = gift.message;
+
+        // Show the gift reveal using its original hidden attribute.
+        giftReveal.hidden = false;
+
+        // Remember each different gift opened.
+        openedGifts.add(giftId);
+
+
+        /* =========================
+           UNLOCK HIDDEN CHAPTER
+        ========================= */
+
+        if (
+            openedGifts.size === 3 &&
+            nextChapter &&
+            nextChapter.hidden
+        ) {
+
+            nextChapter.hidden = false;
+
+            setTimeout(() => {
+                nextChapter.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }, 500);
+
+        }
+
+    }
+
+
+    /* =========================
+       GIFT BUTTON EVENTS
+    ========================= */
+
     giftButtons.forEach(button => {
 
+        if (!button) return;
+
         button.addEventListener("click", () => {
-
-            const giftId = button.id;
-            const gift = gifts[giftId];
-
-            if (!gift || !giftReveal || !revealTitle || !revealMessage) {
-                return;
-            }
-
-            revealTitle.textContent = gift.title;
-            revealMessage.textContent = gift.message;
-
-            giftReveal.classList.add("active");
-
-            openedGifts.add(giftId);
-
-            /* Unlock the hidden chapter only once */
-
-            if (
-                openedGifts.size === 3 &&
-                nextChapter &&
-                nextChapter.hidden
-            ) {
-                nextChapter.hidden = false;
-
-                setTimeout(() => {
-                    nextChapter.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-                }, 500);
-            }
-
+            openGift(button.id);
         });
 
     });
@@ -113,14 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeReveal && giftReveal) {
 
         closeReveal.addEventListener("click", () => {
-            giftReveal.classList.remove("active");
+            giftReveal.hidden = true;
         });
 
     }
 
 
     /* =========================
-       UNLOCK NEXT CHRISTMAS DOOR
+       OPEN NEXT CHRISTMAS DOOR
     ========================= */
 
     if (continueJourney) {
