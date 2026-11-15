@@ -3,7 +3,7 @@
    MERRY CHRISTMAS BABY - MUSIC
 ================================= */
 
-const music = new Audio("./assets/music/christmas-melody.mp3");
+const music = new Audio("./assets/music/angelika728-merry-xmas-270801.mp3");
 
 music.loop = true;
 music.preload = "auto";
